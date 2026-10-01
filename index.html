@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>satoTO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Shantell+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- sprite: frutilla dibujada a mano -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="berry" viewBox="0 0 120 140">
+    <filter id="rough" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <g filter="url(#rough)">
+    <!-- cuerpo -->
+    <path d="M58 136 C38 131 20 112 17 87 C14 63 31 43 57 44 C70 44 80 47 88 53 C100 62 105 74 102 89 C99 112 79 131 58 136 Z"
+          fill="#e0342f" stroke="#c22b26" stroke-width="2"/>
+    <!-- hojas -->
+    <g fill="#3fa356" stroke="#2f8a45" stroke-width="2" stroke-linejoin="round">
+      <path d="M56 55 C44 46 32 45 20 53 C27 66 44 70 56 61 Z"/>
+      <path d="M60 53 C66 41 79 33 95 36 C96 49 85 58 65 60 Z"/>
+      <path d="M57 51 C51 38 57 26 69 19 C80 30 77 47 64 56 Z"/>
+    </g>
+    <!-- tallo -->
+    <path d="M74 35 C80 27 88 22 97 19" fill="none" stroke="#2f8a45" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- brillo -->
+    <path d="M51 74 C57 64 68 63 72 73 C76 85 73 100 62 102 C52 104 45 85 51 74 Z" fill="#f6e7ad"/>
+    <path d="M54 92 L59 80 L64 92 L69 80" fill="none" stroke="#f0d878" stroke-width="3.5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </symbol>
+
+  <symbol id="cart" viewBox="0 0 30 24">
+    <path d="M3 3.5 h3.2 l1.6 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M7.8 7.5 H25 L22.8 15.5 H10.6 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="12.5" cy="19.5" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="20.5" cy="19.5" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+</svg>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="logo">satoTO</div>
+
+    <nav class="topnav">
+      <a href="#" class="topnav__link is-current">home</a>
+    </nav>
+
+    <div class="topicons">
+      <button class="topicons__btn" aria-label="mensajes">
+        <svg viewBox="0 0 30 24" aria-hidden="true">
+          <rect x="2.5" y="3.5" width="25" height="17" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M4 5.5 L15 14.5 L26 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <button class="topicons__btn" aria-label="encargos">
+        <svg viewBox="0 0 32 30" aria-hidden="true">
+          <path d="M16 12 C10 4 3 3 3 9 C3 15 10 15 16 12 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M16 12 C22 4 29 3 29 9 C29 15 22 15 16 12 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M14 14 L10.5 27 M18 14 L21.5 27" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="16" cy="12" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+
+      <button class="topicons__btn" aria-label="mas">
+        <svg viewBox="0 0 32 24" aria-hidden="true">
+          <path d="M4 7 q5 -5 10 0 t10 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M4 13 q6 -5 11 0 t10 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M4 19 q5 -5 10 0 t10 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <button class="topicons__btn topicons__btn--cart" type="button" aria-label="carrito">
+        <svg viewBox="0 0 30 24" aria-hidden="true"><use href="#cart"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage">
+
+    <aside class="panel panel--left">
+      <a href="#" class="terms">terminos<br />y condiciones</a>
+
+      <svg class="berry berry--l1" viewBox="0 0 120 140" aria-hidden="true"><use href="#berry"/></svg>
+      <svg class="berry berry--l2" viewBox="0 0 120 140" aria-hidden="true"><use href="#berry"/></svg>
+
+      <svg class="streaks" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-4 40 L104 74" vector-effect="non-scaling-stroke"/>
+        <path d="M-4 54 L104 94" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </aside>
+
+    <section class="content">
+      <div class="carousel" data-carousel hidden>
+        <div class="carousel__viewport">
+          <figure class="carousel__slide is-active">
+            <img src="img/foto-1.svg" alt="foto 1" />
+          </figure>
+          <figure class="carousel__slide">
+            <img src="img/foto-2.svg" alt="foto 2" />
+          </figure>
+          <figure class="carousel__slide">
+            <img src="img/foto-3.svg" alt="foto 3" />
+          </figure>
+          <figure class="carousel__slide">
+            <img src="img/foto-4.svg" alt="foto 4" />
+          </figure>
+          <figure class="carousel__slide">
+            <img src="img/foto-5.svg" alt="foto 5" />
+          </figure>
+
+          <button class="carousel__nav carousel__nav--prev" type="button" aria-label="foto anterior">&#8249;</button>
+          <button class="carousel__nav carousel__nav--next" type="button" aria-label="foto siguiente">&#8250;</button>
+        </div>
+
+        <div class="carousel__dots">
+          <button class="carousel__dot is-active" type="button" aria-label="ir a la foto 1"></button>
+          <button class="carousel__dot" type="button" aria-label="ir a la foto 2"></button>
+          <button class="carousel__dot" type="button" aria-label="ir a la foto 3"></button>
+          <button class="carousel__dot" type="button" aria-label="ir a la foto 4"></button>
+          <button class="carousel__dot" type="button" aria-label="ir a la foto 5"></button>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab is-active" role="tab" aria-selected="true" data-panel="todo">todo publico</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="nsfw">comisiones NSFW</button>
+      </div>
+
+      <div class="sheet">
+        <div class="sheet__page is-visible" id="page-todo" role="tabpanel">
+          <article class="commission">
+            <h2 class="commission__title">comisiones cuerpo completo
+              <span class="commission__buy">
+                <span class="commission__price">$20</span>
+                <button class="commission__cart" type="button" aria-label="agregar al carrito">
+                  <svg viewBox="0 0 30 24" aria-hidden="true"><use href="#cart"/></svg>
+                </button>
+              </span>
+            </h2>
+            <p class="commission__text">
+              dibujo completo del personaje, de pie, con la pose y la expresion que quieras.
+              primero te paso el boceto para que lo apruebes, despues paso a linea y color.
+              incluye fondo simple y 2 revisiones. entrega en 7 a 10 dias, en png y jpg.
+            </p>
+            <div class="carousel" data-carousel>
+              <div class="carousel__viewport">
+                <figure class="carousel__slide is-active"><img src="imagen.1.png" alt="ejemplo cuerpo completo" /></figure>
+                <figure class="carousel__slide"><img src="imagen.1.png" alt="ejemplo cuerpo completo" /></figure>
+                <figure class="carousel__slide"><img src="imagen.1.png" alt="ejemplo cuerpo completo" /></figure>
+                <button class="carousel__nav carousel__nav--prev" type="button" aria-label="foto anterior">&#8249;</button>
+                <button class="carousel__nav carousel__nav--next" type="button" aria-label="foto siguiente">&#8250;</button>
+              </div>
+              <div class="carousel__dots">
+                <button class="carousel__dot is-active" type="button" aria-label="ir a la foto 1"></button>
+                <button class="carousel__dot" type="button" aria-label="ir a la foto 2"></button>
+                <button class="carousel__dot" type="button" aria-label="ir a la foto 3"></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="commission">
+            <h2 class="commission__title">comisiones medio cuerpo
+              <span class="commission__buy">
+                <span class="commission__price">$15</span>
+                <button class="commission__cart" type="button" aria-label="agregar al carrito">
+                  <svg viewBox="0 0 30 24" aria-hidden="true"><use href="#cart"/></svg>
+                </button>
+              </span>
+            </h2>
+            <p class="commission__text">
+              desde la cintura para arriba, ideal para perfiles o avatares. el proceso es el mismo:
+              boceto, aprobacion, linea y color. incluye fondo de color y 1 revision.
+              entrega en 5 a 7 dias.
+            </p>
+            <div class="carousel" data-carousel>
+              <div class="carousel__viewport">
+                <figure class="carousel__slide is-active"><img src="imagen.1.png" alt="ejemplo medio cuerpo" /></figure>
+                <figure class="carousel__slide"><img src="imagen.1.png" alt="ejemplo medio cuerpo" /></figure>
+                <figure class="carousel__slide"><img src="imagen.1.png" alt="ejemplo medio cuerpo" /></figure>
+                <button class="carousel__nav carousel__nav--prev" type="button" aria-label="foto anterior">&#8249;</button>
+                <button class="carousel__nav carousel__nav--next" type="button" aria-label="foto siguiente">&#8250;</button>
+              </div>
+              <div class="carousel__dots">
+                <button class="carousel__dot is-active" type="button" aria-label="ir a la foto 1"></button>
+                <button class="carousel__dot" type="button" aria-label="ir a la foto 2"></button>
+                <button class="carousel__dot" type="button" aria-label="ir a la foto 3"></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="commission">
+            <h2 class="commission__title">comisiones retrato
+              <span class="commission__buy">
+                <span class="commission__price">$10</span>
+                <button class="commission__cart" type="button" aria-label="agregar al carrito">
+                  <svg viewBox="0 0 30 24" aria-hidden="true"><use href="#cart"/></svg>
+                </button>
+              </span>
+            </h2>
+            <p class="commission__text">
+              busto o cara, con fondo de color a eleccion. es la opcion mas rapida si queres algo
+              puntual. incluye 1 revision del boceto. entrega en 3 a 5 dias.
+            </p>
+            <div class="carousel" data-carousel>
+              <div class="carousel__viewport">
+                <figure class="carousel__slide is-active"><img src="imagen.1.png" alt="ejemplo retrato" /></figure>
+                <figure class="carousel__slide"><img src="imagen.1.png" alt="ejemplo retrato" /></figure>
+                <figure class="carousel__slide"><img src="imagen.1.png" alt="ejemplo retrato" /></figure>
+                <button class="carousel__nav carousel__nav--prev" type="button" aria-label="foto anterior">&#8249;</button>
+                <button class="carousel__nav carousel__nav--next" type="button" aria-label="foto siguiente">&#8250;</button>
+              </div>
+              <div class="carousel__dots">
+                <button class="carousel__dot is-active" type="button" aria-label="ir a la foto 1"></button>
+                <button class="carousel__dot" type="button" aria-label="ir a la foto 2"></button>
+                <button class="carousel__dot" type="button" aria-label="ir a la foto 3"></button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="sheet__page" id="page-nsfw" role="tabpanel">
+          <article class="commission">
+            <h2 class="commission__title">comisiones cuerpo completo
+              <span class="commission__buy">
+                <span class="commission__price">$20</span>
+                <button class="commission__cart" type="button" aria-label="agregar al carrito">
+                  <svg viewBox="0 0 30 24" aria-hidden="true"><use href="#cart"/></svg>
+                </button>
+              </span>
+            </h2>
+            <p class="commission__text">
+              se acuerda la escena, la pose y los limites antes de empezar. primero te paso el
+              boceto para que lo apruebes y recien despues paso a linea y color. incluye fondo
+              simple y 2 revisiones. entrega en 7 a 10 dias.
+            </p>
+            <div class="carousel" data-carousel>
+              <div class="carousel__viewport">
+                <figure class="carousel__slide is-active"><img src="imagen.1.png" alt="ejemplo cuerpo completo" /></figure>
+                <figure class="carousel__slide"><img src="imagen.1.png" alt="ejemplo cuerpo completo" /></figure>
+                <figure class="carousel__slide"><img src="imagen.1.png" alt="ejemplo cuerpo completo" /></figure>
+                <button class="carousel__nav carousel__nav--prev" type="button" aria-label="foto anterior">&#8249;</button>
+                <button class="carousel__nav carousel__nav--next" type="button" aria-label="foto siguiente">&#8250;</button>
+              </div>
+              <div class="carousel__dots">
+                <button class="carousel__dot is-active" type="button" aria-label="ir a la foto 1"></button>
+                <button class="carousel__dot" type="button" aria-label="ir a la foto 2"></button>
+                <button class="carousel__dot" type="button" aria-label="ir a la foto 3"></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="commission">
+            <h2 class="commission__title">comisiones medio cuerpo
+              <span class="commission__buy">
+                <span class="commission__price">$15</span>
+                <button class="commission__cart" type="button" aria-label="agregar al carrito">
+                  <svg viewBox="0 0 30 24" aria-hidden="true"><use href="#cart"/></svg>
+                </button>
+              </span>
+            </h2>
+            <p class="commission__text">
+              desde la cintura para arriba, con la escena que acordemos. boceto, aprobacion,
+              linea y color. incluye fondo de color y 1 revision. entrega en 5 a 7 dias.
+            </p>
+            <div class="carousel" data-carousel>
+              <div class="carousel__viewport">
+                <figure class="carousel__slide is-active"><img src="imagen.1.png" alt="ejemplo medio cuerpo" /></figure>
+                <figure class="carousel__slide"><img src="imagen.1.png" alt="ejemplo medio cuerpo" /></figure>
+                <figure class="carousel__slide"><img src="imagen.1.png" alt="ejemplo medio cuerpo" /></figure>
+                <button class="carousel__nav carousel__nav--prev" type="button" aria-label="foto anterior">&#8249;</button>
+                <button class="carousel__nav carousel__nav--next" type="button" aria-label="foto siguiente">&#8250;</button>
+              </div>
+              <div class="carousel__dots">
+                <button class="carousel__dot is-active" type="button" aria-label="ir a la foto 1"></button>
+                <button class="carousel__dot" type="button" aria-label="ir a la foto 2"></button>
+                <button class="carousel__dot" type="button" aria-label="ir a la foto 3"></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="commission">
+            <h2 class="commission__title">comisiones retrato
+              <span class="commission__buy">
+                <span class="commission__price">$10</span>
+                <button class="commission__cart" type="button" aria-label="agregar al carrito">
+                  <svg viewBox="0 0 30 24" aria-hidden="true"><use href="#cart"/></svg>
+                </button>
+              </span>
+            </h2>
+            <p class="commission__text">
+              busto o cara, con fondo de color a eleccion. es la opcion mas rapida, con 1 revision
+              del boceto. entrega en 3 a 5 dias.
+            </p>
+            <div class="carousel" data-carousel>
+              <div class="carousel__viewport">
+                <figure class="carousel__slide is-active"><img src="imagen.1.png" alt="ejemplo retrato" /></figure>
+                <figure class="carousel__slide"><img src="imagen.1.png" alt="ejemplo retrato" /></figure>
+                <figure class="carousel__slide"><img src="imagen.1.png" alt="ejemplo retrato" /></figure>
+                <button class="carousel__nav carousel__nav--prev" type="button" aria-label="foto anterior">&#8249;</button>
+                <button class="carousel__nav carousel__nav--next" type="button" aria-label="foto siguiente">&#8250;</button>
+              </div>
+              <div class="carousel__dots">
+                <button class="carousel__dot is-active" type="button" aria-label="ir a la foto 1"></button>
+                <button class="carousel__dot" type="button" aria-label="ir a la foto 2"></button>
+                <button class="carousel__dot" type="button" aria-label="ir a la foto 3"></button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <aside class="panel panel--right">
+      <svg class="berry berry--r1" viewBox="0 0 120 140" aria-hidden="true"><use href="#berry"/></svg>
+      <svg class="berry berry--r2" viewBox="0 0 120 140" aria-hidden="true"><use href="#berry"/></svg>
+
+      <div class="clock" id="clock">3:09 p. m.</div>
+    </aside>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

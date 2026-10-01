@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="foto 01">
+  <defs>
+    <linearGradient id="g01" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd9e3"/>
+      <stop offset="1" stop-color="#f7a8be"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g01)"/>
+  <path d="M0 430 C 160 380 300 500 460 450 C 600 405 700 470 800 430 L800 600 L0 600 Z" fill="#ffffff" opacity="0.5"/>
+  <path d="M0 320 C 200 280 320 390 520 350 C 640 325 720 370 800 340 L800 410 C 720 440 640 395 520 420 C 320 460 200 350 0 390 Z" fill="#ffffff" opacity="0.35"/>
+  <text x="400" y="330" text-anchor="middle" font-family="Caveat, Comic Sans MS, cursive" font-size="150" font-weight="700" fill="#e0628e" opacity="0.9">01</text>
+  <text x="400" y="395" text-anchor="middle" font-family="Caveat, Comic Sans MS, cursive" font-size="46" fill="#e0628e" opacity="0.75">foto de ejemplo</text>
+</svg>
